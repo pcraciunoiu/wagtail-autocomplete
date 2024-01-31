@@ -20,7 +20,7 @@ def _is_single_value(db_field):
     Returns True if the given model field accepts a single value only.
     """
     # should cover all many-to-many relationships
-    return not isinstance(db_field, ManyToManyField)
+    return not db_field.many_to_many
 
 
 class AutocompletePanel(FieldPanel):
