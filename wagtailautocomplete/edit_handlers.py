@@ -1,5 +1,4 @@
 from django.core.exceptions import ImproperlyConfigured
-from django.db.models import ManyToManyField
 from django.utils.functional import cached_property
 from wagtail.admin.panels import FieldPanel
 from wagtail.coreutils import resolve_model_string
