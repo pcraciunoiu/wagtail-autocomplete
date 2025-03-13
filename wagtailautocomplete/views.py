@@ -5,8 +5,12 @@ from django.apps import apps
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 from django.db.models import Model, QuerySet
-from django.http import (HttpResponseBadRequest, HttpResponseForbidden,
-                         HttpResponseNotFound, JsonResponse)
+from django.http import (
+    HttpResponseBadRequest,
+    HttpResponseForbidden,
+    HttpResponseNotFound,
+    JsonResponse,
+)
 from django.views.decorators.http import require_GET, require_POST
 
 
@@ -72,7 +76,7 @@ def search(request):
         return HttpResponseBadRequest()
 
     if callable(getattr(model, 'autocomplete_custom_queryset_filter', None)):
-        queryset = model.autocomplete_custom_queryset_filter(search_query)
+        queryset = model.autocomplete_custom_queryset_filter(search_query, request=request)
         validate_queryset(queryset, model)
     else:
         queryset = filter_queryset(search_query, model)
