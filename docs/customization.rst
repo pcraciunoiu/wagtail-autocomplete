@@ -93,7 +93,7 @@ By default, the autocomplete widget uses an ``icontains`` lookup to search for m
 
         # This is used on the `search/` admin endpoint
         @staticmethod
-        def autocomplete_custom_queryset_filter(search_term: str*, request: HttpRequest) -> QuerySet:
+        def autocomplete_custom_queryset_filter(search_term: str, *, request: HttpRequest) -> QuerySet:
             # You can use the request to filter the queryset
             field_name='my_special_field'
             filter_kwargs = dict()
