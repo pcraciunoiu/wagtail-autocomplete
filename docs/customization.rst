@@ -99,9 +99,3 @@ By default, the autocomplete widget uses an ``icontains`` lookup to search for m
             filter_kwargs = dict()
             filter_kwargs[field_name + '__contains'] = search_term
             return MyModel.objects.filter(**filter_kwargs)
-
-        # This is used on the `objects/` admin endpoint
-        @staticmethod
-        def autocomplete_custom_queryset_objects(*, request: HttpRequest) -> QuerySet:
-            # You can use the request to filter the queryset
-            return MyModel.objects.filter(show_in_search=True)
